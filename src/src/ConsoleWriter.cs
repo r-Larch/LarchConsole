@@ -75,7 +75,7 @@ namespace LarchConsole {
             return this;
         }
 
-        public ConsoleWriter FormatLines<T>(string format, List<Match<T>> datas, Func<Match<T>, Parms, Parms> parms) {
+        public ConsoleWriter FormatLines<T>(string format, List<T> datas, Func<T, Parms, Parms> parms) {
             foreach (var match in datas) {
                 var dic = parms(match, new Parms());
                 Add(GetFormated(format, dic.Parameters), newLine: true);
